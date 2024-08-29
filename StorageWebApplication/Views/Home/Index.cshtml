@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="container">
+    <h1 class="display-4 text-center">Welcome to Image and Order Management</h1>
+    <p class="text-center">Our application allows you to upload images to Azure Blob Storage and manage order processing via Azure Queue Storage. Easily manage your images and track your orders with our intuitive web interface.</p>
+
+    <!-- File Upload Form -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <form asp-controller="Home" asp-action="UploadImage" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="fileUpload">Upload an Image</label>
+                    <input type="file" id="fileUpload" name="File" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Process Order Form -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <form asp-controller="Home" asp-action="ProcessOrder" method="post">
+                <div class="form-group">
+                    <label for="orderId">Order ID</label>
+                    <input type="text" id="orderId" name="orderId" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-secondary mt-2">Process Order</button>
+            </form>
+        </div>
+    </div>
+</div>
